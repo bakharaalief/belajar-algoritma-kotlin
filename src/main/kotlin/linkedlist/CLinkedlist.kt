@@ -10,9 +10,7 @@ class CLinkedlist {
             last = newNode
             newNode.nextNode = last
         }
-        else{
-            last?.nextNode = CNode(number, last?.nextNode)
-        }
+        else last?.nextNode = CNode(number, last?.nextNode)
     }
 
     //insert at the end
@@ -61,7 +59,10 @@ class CLinkedlist {
                 var deleteNode = current
                 do{
                     if(index == position - 1)  prevNode = current
-                    else if(index == position) deleteNode = current
+                    else if(index == position) {
+                        deleteNode = current
+                        break
+                    }
 
                     current = current?.nextNode
                     index++

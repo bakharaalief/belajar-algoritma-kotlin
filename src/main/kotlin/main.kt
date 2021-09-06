@@ -1,3 +1,8 @@
+import Tree.CompleteBinaryTree
+import Tree.FullBinaryTree
+import Tree.PerfectBinaryTree
+import Tree.TreeAlgoTranversal
+import hash.Hash
 import linkedlist.CDLinkedlist
 import linkedlist.CLinkedlist
 import linkedlist.DLinkedlist
@@ -7,7 +12,14 @@ fun main(args: Array<String>) {
 //    printLinkedlist()
 //    printDLinkedlist()
 //    printCLinkedlist()
-    printCDLinkedList()
+//    printCDLinkedList()
+
+//    printHash()
+
+//    printTransversalTree()
+//    printFullBinaryTree()
+//    printPerfectBinaryTree()
+    printCompleteBinaryTree()
 }
 
 fun printLinkedlist(){
@@ -67,7 +79,6 @@ fun printCLinkedlist(){
     println("")
     cLinkedlist.printData()
 
-
     cLinkedlist.last?.let { cLinkedlist.insertAfter(13, it) }
     cLinkedlist.last?.let { cLinkedlist.insertAfter(14, it) }
 
@@ -96,5 +107,74 @@ fun printCDLinkedList(){
     cdLinkedlist.insertAtBegin(1)
 
     cdLinkedlist.printData()
+
+    cdLinkedlist.insertAtEnd(12)
+    cdLinkedlist.insertAtEnd(20)
+
+    println("")
+    cdLinkedlist.printData()
+
+    cdLinkedlist.insertAfter(13, cdLinkedlist.last)
+    cdLinkedlist.insertAfter(14, cdLinkedlist.last)
+
+    println("")
+    cdLinkedlist.printData()
+
+    cdLinkedlist.delete(4)
+
+    println("")
+    cdLinkedlist.printData()
+}
+
+fun printHash(){
+    val hash = Hash()
+
+    hash.runHash()
+
+    hash.printDataAll()
+
+    hash.printData("dua")
+}
+
+fun printTransversalTree(){
+    val treeAlgoTranversal = TreeAlgoTranversal()
+
+    treeAlgoTranversal.setTree()
+
+    println("Algoritma in Order : ")
+    treeAlgoTranversal.inOrder(treeAlgoTranversal.root)
+
+    println("")
+    println("Algoritma pre Order : ")
+    treeAlgoTranversal.preOrder(treeAlgoTranversal.root)
+
+    println("")
+    println("Algoritma post Order :")
+    treeAlgoTranversal.postOrder(treeAlgoTranversal.root)
+}
+
+fun printFullBinaryTree(){
+    val fullBinaryTree = FullBinaryTree()
+    fullBinaryTree.setTree()
+    val isFullBinary = fullBinaryTree.isFullBinaryTree(fullBinaryTree.root)
+
+    if(isFullBinary) println("Iya Ini benar")
+    else println("Bukan Binary Tree Ini Mah")
+}
+
+fun printPerfectBinaryTree(){
+    val perfectBinaryTree = PerfectBinaryTree()
+    perfectBinaryTree.setTree()
+
+    if(perfectBinaryTree.isPerfectTree(perfectBinaryTree.root)) println("Iya nih perfect binary")
+    else println("Bukan Nih")
+}
+
+fun printCompleteBinaryTree() {
+    val completeBinaryTree = CompleteBinaryTree()
+    completeBinaryTree.setTree()
+
+    if (completeBinaryTree.isComplete(completeBinaryTree.root)) println("Iya nih complete binary")
+    else println("Bukan Nih")
 }
 

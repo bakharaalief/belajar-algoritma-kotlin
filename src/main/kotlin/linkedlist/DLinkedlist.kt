@@ -54,7 +54,10 @@ class DLinkedlist {
     fun delete(position : Int){
         when{
             head == null -> println("Kosong :)")
-            position == 0 -> head = head?.nextNode
+            position == 0 -> {
+                head = head?.nextNode
+                head?.prevNode = null
+            }
             else ->{
                 var current = head
                 var index = 0
